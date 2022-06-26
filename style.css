@@ -1,19 +1,62 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.main-title{
+    margin: 1.5em auto;
+
+    font-size: 2rem;
+    text-align: center;
+}
+
 .sketch-container{
     width: 800px;
     height: 800px;
 
     background-color: white;
 
-    margin-inline: auto;
     display: flex;
 
     flex-flow: column;
     border: 1em solid black;
 }
+
+.main-wrap{
+    display: flex;
+    width: 1200px;
+    margin-inline: auto;
+    justify-content: space-between;
+
+    gap: 1em;
+
+}
+.options{
+    width: 15%;
+    display: flex;
+
+    flex-flow: column nowrap;
+}
+
 body{
     background-color: bisque;
+}
+
+.size-btn{
+    
+    background-color: rgb(119, 201, 255);
+    font-size: 1.5rem;
+    padding: 0;
+    border: 0.15em solid black;
+    font-weight: 500;
+
+    border-radius: 10%;
+    padding: 0.5em;
+    
+    margin-top: 1em;
 }
 
 .black{
     background-color: black;
 }
+
