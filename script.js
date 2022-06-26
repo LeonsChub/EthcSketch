@@ -1,11 +1,11 @@
 const sketch_cont = document.querySelector(".sketch-container");
-const btn_size = document.querySelector(".btn-size");
+const btn_size = document.querySelector(".btn.size");
+const btn_clear = document.querySelector(".btn.clear");
 
 btn_size.addEventListener("click",()=>{
     sketch_cont.innerHTML= "";
 
-
-    let resolution = parseInt(prompt("Resize canvas leave blank to clear"));
+    let resolution = parseInt(prompt("Resize canvas"));
 
     if (resolution >= 64){
         resolution = 64;
@@ -26,8 +26,6 @@ document.body.onmouseup = () =>{
     mouseDown = false;
 };
 
-color = "aqua"
-
 function drawGrid(res = 16){
 
     for(let i = 0 ; i < res ; i++){
@@ -42,11 +40,35 @@ function drawGrid(res = 16){
     
             block.addEventListener("mouseenter",()=>{
                 if(mouseDown){
-                    block.style.backgroundColor = "rgba(0,0,0,0.1)";
+                    if (block.style.backgroundColor ===""){
+                        block.style.backgroundColor = "rgba(0,0,0,0.1)";
+                    }
+                    else{
+                        alpha = parseFloat(block.style.backgroundColor.slice(-4,-1)); 
+                        
+                        if (alpha < 1){
+                            alpha += 0.1;
+                        }
+
+                        block.style.backgroundColor = `rgba(0,0,0,${alpha})`
+                    }
                 }
             })
+
+            
             block.addEventListener("mousedown",()=>{
-                block.style.backgroundColor = "rgba(0,0,0,0.1)";
+                if (block.style.backgroundColor ===""){
+                    block.style.backgroundColor = "rgba(0,0,0,0.1)";
+                }
+                else{
+                    alpha = parseFloat(block.style.backgroundColor.slice(-4,-1)); 
+                    
+                    if (alpha < 1){
+                        alpha += 0.1;
+                    }
+
+                    block.style.backgroundColor = `rgba(0,0,0,${alpha})`
+                }
             })
     
             row.appendChild(block);
