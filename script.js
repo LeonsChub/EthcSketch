@@ -1,11 +1,10 @@
 const sketch_cont = document.querySelector(".sketch-container");
 const btn_size = document.querySelector(".btn.size");
 const btn_clear = document.querySelector(".btn.clear");
+let resolution = 16
 
 btn_size.addEventListener("click",()=>{
-    sketch_cont.innerHTML= "";
-
-    let resolution = parseInt(prompt("Resize canvas"));
+    resolution = parseInt(prompt("Resize canvas"));
 
     if (resolution >= 64){
         resolution = 64;
@@ -27,6 +26,7 @@ document.body.onmouseup = () =>{
 };
 
 function drawGrid(res = 16){
+    sketch_cont.innerHTML= "";
 
     for(let i = 0 ; i < res ; i++){
         let row = document.createElement("div");
@@ -80,3 +80,8 @@ function drawGrid(res = 16){
 }
 
 drawGrid(16);
+
+btn_clear.onclick = () =>{
+
+    drawGrid(resolution);
+}
