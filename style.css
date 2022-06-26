@@ -1,0 +1,19 @@
+.sketch-container{
+    width: 800px;
+    height: 800px;
+
+    background-color: white;
+
+    margin-inline: auto;
+    display: flex;
+
+    flex-flow: column;
+    border: 1em solid black;
+}
+body{
+    background-color: bisque;
+}
+
+.black{
+    background-color: black;
+}
